@@ -1,6 +1,8 @@
+
+
 import React from "react";
 import { motion } from "framer-motion";
-import { Shield } from "lucide-react";
+import { Shield, Cpu, Cloud, FileCheck2, Tool } from "lucide-react"; 
 import diogenesProfessional from "./assets/diogenesProfessional.jpg";
 
 // Dados para as Competências Técnicas
@@ -8,22 +10,22 @@ const technicalSkills = [
   {
     category: "Sistemas Operativos",
     skills: ["Windows", "Linux", "macOS"],
-    icon: "/icons/os.svg" // Assumindo que estes ícones existem
+    icon: <Cpu className="w-6 h-6 mr-2 text-primary" />
   },
   {
     category: "Ferramentas de Segurança",
     skills: ["Wazuh SIEM", "Splunk", "Wireshark", "Metasploit"],
-    icon: "/icons/security_tools.svg"
+    icon: <Tool className="w-6 h-6 mr-2 text-primary" />
   },
   {
     category: "Cloud Computing",
     skills: ["AWS", "Azure", "Oracle Cloud"],
-    icon: "/icons/cloud.svg"
+    icon: <Cloud className="w-6 h-6 mr-2 text-primary" />
   },
   {
     category: "Compliance & Standards",
     skills: ["ISO 27001", "NIST", "GDPR"],
-    icon: "/icons/compliance.svg"
+    icon: <FileCheck2 className="w-6 h-6 mr-2 text-primary" />
   },
 ];
 
@@ -31,25 +33,29 @@ const technicalSkills = [
 const certifications = [
   {
     name: "AWS Certified Cloud Practitioner",
-    icon: "/icons/aws.svg",
+    icon: null,
     link: "https://www.credly.com/badges/ec604bee-8d2e-4523-90c3-7433a324bb4c"
   },
   {
     name: "Oracle Cloud Infrastructure Foundations Associate",
-    icon: "/icons/oracle.svg", // Assumindo que existe um ícone para Oracle
+    icon: null,
     link: "https://learn.microsoft.com/api/credentials/share/pt-br/DiogenesAquino6561/C3DB4BE8369FE05A?sharingId=56812747D84CB777"
   },
   {
     name: "AZ-900 Azure – Microsoft",
-    icon: "/icons/azure.svg",
+    icon: null,
     link: "https://learn.microsoft.com/api/credentials/share/pt-br/DiogenesAquino6561/C3DB4BE8369FE05A?sharingId=56812747D84CB777"
   },
   {
     name: "Inteligência contra ameaças cibernéticas IBM",
-    icon: "/icons/ibm.svg",
+    icon: null,
     link: "https://www.credly.com/badges/7a9b5893-6e6c-4d4f-b01f-38eb99f01874/public_url"
   },
-  // Adicionar outras certificações conforme necessário
+  {
+    name: "CIS Benchmark",
+    icon: null,
+    link: "#" // Coloque o link real se tiver
+  },
 ];
 
 // Dados para a Experiência Profissional
@@ -84,10 +90,10 @@ const App = () => {
       <section id="about" className="py-20 relative">
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold cyber-text-glow">
+            <h1 className="text-4xl font-bold cyber-text-glow">
               <Shield className="inline mr-4 h-10 w-10 text-primary" />
               Sobre Mim
-            </h2>
+            </h1>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-12">
@@ -97,14 +103,14 @@ const App = () => {
                 Sou profissional de Tecnologia da Informação e Cibersegurança com experiência em grandes empresas no Brasil e Espanha, incluindo <strong>Stratesys</strong> e <strong>Carrera</strong>. Experiência prática em diversos <strong>SIEMs</strong> e ferramentas de segurança
               </p>
 
-              {/* Skills Técnicas - Melhorado */}
+              {/* Skills Técnicas */}
               <div>
-                <h3 className="text-2xl font-semibold mb-4">Competências Técnicas</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <h2 className="text-2xl font-semibold mb-4">Competências Técnicas</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
                   {technicalSkills.map((skillCategory, index) => (
                     <div key={index} className="bg-gradient-to-br from-primary/10 to-background p-6 rounded-xl shadow-lg hover:shadow-primary/30 transition-all duration-300">
                       <div className="flex items-center mb-4">
-                        {skillCategory.icon && <img src={skillCategory.icon} alt={skillCategory.category} className="w-8 h-8 mr-3" />}
+                        {skillCategory.icon}
                         <h4 className="font-bold text-lg text-primary">{skillCategory.category}</h4>
                       </div>
                       <ul className="text-sm space-y-2">
@@ -119,9 +125,9 @@ const App = () => {
                 </div>
               </div>
 
-              {/* Certificações - Melhorado */}
+              {/* Certificações */}
               <div>
-                <h3 className="text-2xl font-semibold mb-4">Certificações</h3>
+                <h2 className="text-2xl font-semibold mb-4">Certificações</h2>
                 <div className="flex flex-wrap gap-4">
                   {certifications.map((cert, index) => (
                     <a
@@ -138,10 +144,10 @@ const App = () => {
                 </div>
               </div>
 
-              {/* Contato e CV - Melhorado */}
+              {/* Contato e CV */}
               <p className="text-lg text-muted-foreground leading-relaxed mt-4">
                 Contato: <a href="mailto:diogenesfaquino@gmail.com" className="underline text-primary hover:text-accent transition-colors duration-200">diogenesfaquino@gmail.com</a> | 
-                <a href="https://www.linkedin.com/in/diogenes-a-freitas-4577951a1/" className="underline text-primary hover:text-accent transition-colors duration-200">LinkedIn</a>
+                <a href="https://www.linkedin.com/in/diogenes-a-freitas-4577951a1/" className="underline text-primary hover:text-accent transition-colors duration-200 ml-2">LinkedIn</a>
               </p>
               <div className="mt-6">
                 <a 
@@ -178,7 +184,7 @@ const App = () => {
         </div>
       </section>
 
-      {/* Experiência Profissional - Nova Seção */}
+      {/* Experiência Profissional */}
       <section id="experience" className="py-20 bg-gray-900">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
@@ -207,6 +213,5 @@ const App = () => {
 };
 
 export default App;
-
 
 
