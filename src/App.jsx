@@ -1,8 +1,9 @@
 
 
+
 import React from "react";
 import { motion } from "framer-motion";
-import { Shield, Cpu, Cloud, FileCheck2, Tool } from "lucide-react"; 
+import { Shield, Cpu, Cloud, FileCheck2, Settings } from "lucide-react";
 import diogenesProfessional from "./assets/diogenesProfessional.jpg";
 
 // Dados para as Competências Técnicas
@@ -15,7 +16,7 @@ const technicalSkills = [
   {
     category: "Ferramentas de Segurança",
     skills: ["Wazuh SIEM", "Splunk", "Wireshark", "Metasploit"],
-    icon: <Tool className="w-6 h-6 mr-2 text-primary" />
+    icon: <Settings className="w-6 h-6 mr-2 text-primary" />
   },
   {
     category: "Cloud Computing",
@@ -33,28 +34,23 @@ const technicalSkills = [
 const certifications = [
   {
     name: "AWS Certified Cloud Practitioner",
-    icon: null,
+    icon: "/icons/aws.svg",
     link: "https://www.credly.com/badges/ec604bee-8d2e-4523-90c3-7433a324bb4c"
   },
   {
     name: "Oracle Cloud Infrastructure Foundations Associate",
-    icon: null,
+    icon: "/icons/oracle.svg",
     link: "https://learn.microsoft.com/api/credentials/share/pt-br/DiogenesAquino6561/C3DB4BE8369FE05A?sharingId=56812747D84CB777"
   },
   {
     name: "AZ-900 Azure – Microsoft",
-    icon: null,
+    icon: "/icons/azure.svg",
     link: "https://learn.microsoft.com/api/credentials/share/pt-br/DiogenesAquino6561/C3DB4BE8369FE05A?sharingId=56812747D84CB777"
   },
   {
     name: "Inteligência contra ameaças cibernéticas IBM",
-    icon: null,
+    icon: "/icons/ibm.svg",
     link: "https://www.credly.com/badges/7a9b5893-6e6c-4d4f-b01f-38eb99f01874/public_url"
-  },
-  {
-    name: "CIS Benchmark",
-    icon: null,
-    link: "#" // Coloque o link real se tiver
   },
 ];
 
@@ -66,8 +62,8 @@ const professionalExperience = [
     period: "2025",
     role: "Consultor Analista",
     responsibilities: [
-      "Análise de mais de 150 alertas de segurança semanais utilizando SIEMs (Wazuh, Splunk, IBM QRadar), contribuindo para a deteção e mitigação de ameaças e reduzindo o tempo médio de resposta em 15%.",
-      "Realização de varreduras mensais de vulnerabilidades com Qualys e Nessus, identificando e priorizando riscos de segurança, resultando numa redução de 20% nas vulnerabilidades críticas. Suporte em apresentações técnicas de compliance para clientes internacionais."
+      "Análise de mais de 150 alertas de segurança semanais utilizando SIEMs (Wazuh, Splunk, IBM QRadar), contribuindo para a deteção e mitigação de ameaças e reduzindo o tempo médio de resposta em 15%",
+      "Realização de varreduras mensais de vulnerabilidades com Qualys e Nessus, identificando e priorizando riscos de segurança, resultando numa redução de 20% nas vulnerabilidades críticas. Suporte em apresentações técnicas de compliance para clientes internacionais"
     ]
   },
   {
@@ -76,9 +72,9 @@ const professionalExperience = [
     period: "2022-2024",
     role: "Assistente Administrativo - Sistema e Redes internas",
     responsibilities: [
-      "Coordenação da comunicação com a equipe técnica em Espanha para a gestão e atualização de redes e sistemas, garantindo 99% de uptime dos serviços.",
-      "Implementação e gestão de soluções de antivírus e AntiSpam para uma base de mais de 50 usuários, resultando numa redução de 30% em incidentes de phishing e malware.",
-      "Gestão do ciclo de vida de identidades e acessos (IAM) para múltiplos sistemas, assegurando o princípio do menor privilégio e realizando auditorias de acesso trimestrais."
+      "Coordenação da comunicação com a equipe técnica em Espanha para a gestão e atualização de redes e sistemas, garantindo 99% de uptime dos serviços",
+      "Implementação e gestão de soluções de antivírus e AntiSpam para uma base de mais de 50 usuários, resultando numa redução de 30% em incidentes de phishing e malware",
+      "Gestão do ciclo de vida de identidades e acessos (IAM) para múltiplos sistemas, assegurando o princípio do menor privilégio e realizando auditorias de acesso trimestrais"
     ]
   }
 ];
@@ -90,10 +86,10 @@ const App = () => {
       <section id="about" className="py-20 relative">
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold cyber-text-glow">
+            <h2 className="text-4xl font-bold cyber-text-glow">
               <Shield className="inline mr-4 h-10 w-10 text-primary" />
               Sobre Mim
-            </h1>
+            </h2>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-12">
@@ -105,8 +101,8 @@ const App = () => {
 
               {/* Skills Técnicas */}
               <div>
-                <h2 className="text-2xl font-semibold mb-4">Competências Técnicas</h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <h3 className="text-2xl font-semibold mb-4">Competências Técnicas</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                   {technicalSkills.map((skillCategory, index) => (
                     <div key={index} className="bg-gradient-to-br from-primary/10 to-background p-6 rounded-xl shadow-lg hover:shadow-primary/30 transition-all duration-300">
                       <div className="flex items-center mb-4">
@@ -127,7 +123,7 @@ const App = () => {
 
               {/* Certificações */}
               <div>
-                <h2 className="text-2xl font-semibold mb-4">Certificações</h2>
+                <h3 className="text-2xl font-semibold mb-4">Certificações</h3>
                 <div className="flex flex-wrap gap-4">
                   {certifications.map((cert, index) => (
                     <a
@@ -147,7 +143,7 @@ const App = () => {
               {/* Contato e CV */}
               <p className="text-lg text-muted-foreground leading-relaxed mt-4">
                 Contato: <a href="mailto:diogenesfaquino@gmail.com" className="underline text-primary hover:text-accent transition-colors duration-200">diogenesfaquino@gmail.com</a> | 
-                <a href="https://www.linkedin.com/in/diogenes-a-freitas-4577951a1/" className="underline text-primary hover:text-accent transition-colors duration-200 ml-2">LinkedIn</a>
+                <a href="https://www.linkedin.com/in/diogenes-a-freitas-4577951a1/" className="underline text-primary hover:text-accent transition-colors duration-200">LinkedIn</a>
               </p>
               <div className="mt-6">
                 <a 
@@ -213,5 +209,3 @@ const App = () => {
 };
 
 export default App;
-
-
