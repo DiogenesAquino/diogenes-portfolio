@@ -171,81 +171,7 @@ function App() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 relative">
-        <div className="container mx-auto px-4 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="max-w-6xl mx-auto"
-          >
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold cyber-text-glow">
-                <Shield className="inline mr-4 h-10 w-10 text-primary" />
-                Sobre Mim
-              </h2>
-            </div>
-            
-            <div className="grid lg:grid-cols-2 gap-12 items-center mb-12">
-              <div className="space-y-6">
-                <p className="text-xl text-muted-foreground leading-relaxed">
-                  Técnico Especialista em Cibersegurança em formação e estudante de Bacharelado em Sistemas e 
-                  Tecnologia da Informação. Atualmente, atuo como Trainee Analista em Cibersegurança na Stratesys-TS. Apaixonado por tecnologia, segurança digital e inteligência artificial, atuo na criação de laboratórios e projetos de segurança da informação.
-                </p>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  Com experiência prévia em gestão administrativa, redes e sistemas, estou em transição para a área 
-                  de Cibersegurança. Possuo certificações internacionais em Oracle Cloud, AWS e Microsoft Azure, 
-                  demonstrando preparação para ambientes multicloud.
-                </p>
-              </div>
-              
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                viewport={{ once: true }}
-                className="flex justify-center"
-              >
-                <div className="relative">
-                  <div className="absolute inset-0 cyber-glow rounded-lg"></div>
-                  <img
-                    src={diogenesProfessional}
-                    alt="Diógenes Aquino Freitas - Foto Profissional"
-                    className="w-80 h-96 rounded-lg object-cover border-4 border-primary/50 floating"
-                  />
-                </div>
-              </motion.div>
-            </div>
-            
-            <div className="grid md:grid-cols-3 gap-6 mt-12">
-              <Card className="cyber-border bg-card/80">
-                <CardContent className="p-6 text-center">
-                  <Terminal className="h-12 w-12 text-primary mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold mb-2">Análise de Vulnerabilidades</h3>
-                  <p className="text-muted-foreground">Especialização em identificação e mitigação de vulnerabilidades</p>
-                </CardContent>
-              </Card>
-              
-              <Card className="cyber-border bg-card/80">
-                <CardContent className="p-6 text-center">
-                  <Server className="h-12 w-12 text-primary mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold mb-2">SIEM & SOC</h3>
-                  <p className="text-muted-foreground">Experiência com ferramentas SIEM e operações de SOC</p>
-                </CardContent>
-              </Card>
-              
-              <Card className="cyber-border bg-card/80">
-                <CardContent className="p-6 text-center">
-                  <Cloud className="h-12 w-12 text-primary mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold mb-2">Cloud Security</h3>
-                  <p className="text-muted-foreground">Certificado em AWS, Azure e Oracle Cloud Infrastructure</p>
-                </CardContent>
-              </Card>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      <section\ id=""about""\ className=""py-20\ relative"">\r\n\ \ <div\ className=""container\ mx-auto\ px-4\ relative\ z-10"">\r\n\ \ \ \ <div\ className=""text-center\ mb-12"">\r\n\ \ \ \ \ \ <h2\ className=""text-4xl\ font-bold\ cyber-text-glow"">\r\n\ \ \ \ \ \ \ \ <Shield\ className=""inline\ mr-4\ h-10\ w-10\ text-primary""\ />\r\n\ \ \ \ \ \ \ \ Sobre\ Mim\r\n\ \ \ \ \ \ </h2>\r\n\ \ \ \ </div>\r\n\ \ \ \ \r\n\ \ \ \ <div\ className=""grid\ lg:grid-cols-2\ gap-12\ items-center\ mb-12"">\r\n\ \ \ \ \ \ <div\ className=""space-y-6"">\r\n\ \ \ \ \ \ \ \ <p\ className=""text-xl\ text-muted-foreground\ leading-relaxed"">\r\n\ \ \ \ \ \ \ \ \ \ Sou\ profissional\ de\ Tecnologia\ da\ Informação\ e\ Cibersegurança,\ com\ experiência\ internacional\ em\ projetos\ com\ equipes\ do\ Brasil,\ Chile,\ Peru,\ Portugal\ e\ Espanha\.\ Atualmente\ atuo\ como\ Trainee\ Analista\ em\ Cibersegurança\ na\ Stratesys-TS\.\ Apaixonado\ por\ tecnologia,\ segurança\ digital\ e\ inteligência\ artificial,\ participo\ da\ criação\ de\ laboratórios\ e\ projetos\ de\ segurança\ da\ informação\.\r\n\ \ \ \ \ \ \ \ </p>\r\n\ \ \ \ \ \ \ \ <p\ className=""text-lg\ text-muted-foreground\ leading-relaxed"">\r\n\ \ \ \ \ \ \ \ \ \ Possuo\ certificações\ internacionais\ em\ Oracle\ Cloud,\ AWS,\ Microsoft\ Azure,\ Cisco\ e\ IBM,\ demonstrando\ preparo\ para\ ambientes\ multicloud\.\ Meu\ foco\ inclui\ Vulnerability\ Assessment,\ Incident\ Response,\ SIEM\ \(Wazuh\),\ campanhas\ de\ Phishing,\ Awareness\ e\ Cloud\ Computing\.\r\n\ \ \ \ \ \ \ \ </p>\r\n\ \ \ \ \ \ \ \ <p\ className=""text-lg\ text-muted-foreground\ leading-relaxed"">\r\n\ \ \ \ \ \ \ \ \ \ Contato:\ <a\ href='mailto:diogenesfaquino@gmail\.com'>diogenesfaquino@gmail\.com</a>\ \|\ <a\ href='https://www\.linkedin\.com/in/diogenes-a-freitas-4577951a1/'>LinkedIn</a>\ \|\ <a\ href='CV\.pdf'>Download\ CV</a>\r\n\ \ \ \ \ \ \ \ </p>\r\n\ \ \ \ \ \ </div>\r\n\r\n\ \ \ \ \ \ <motion\.div\r\n\ \ \ \ \ \ \ \ initial=\{\{\ opacity:\ 0,\ x:\ 50\ }}\r\n\ \ \ \ \ \ \ \ whileInView=\{\{\ opacity:\ 1,\ x:\ 0\ }}\r\n\ \ \ \ \ \ \ \ transition=\{\{\ duration:\ 0\.8,\ delay:\ 0\.2\ }}\r\n\ \ \ \ \ \ \ \ viewport=\{\{\ once:\ true\ }}\r\n\ \ \ \ \ \ \ \ className=""flex\ justify-center""\r\n\ \ \ \ \ \ >\r\n\ \ \ \ \ \ \ \ <div\ className=""relative"">\r\n\ \ \ \ \ \ \ \ \ \ <div\ className=""absolute\ inset-0\ cyber-glow\ rounded-lg""></div>\r\n\ \ \ \ \ \ \ \ \ \ <img\r\n\ \ \ \ \ \ \ \ \ \ \ \ src=\{diogenesProfessional}\r\n\ \ \ \ \ \ \ \ \ \ \ \ alt=""Diogenes\ Aquino\ Freitas\ -\ Foto\ Profissional""\r\n\ \ \ \ \ \ \ \ \ \ \ \ className=""w-80\ h-96\ rounded-lg\ object-cover\ border-4\ border-primary/50\ floating""\r\n\ \ \ \ \ \ \ \ \ \ />\r\n\ \ \ \ \ \ \ \ </div>\r\n\ \ \ \ \ \ </motion\.div>\r\n\ \ \ \ </div>\r\n</section>
 
       {/* Skills Section */}
       <section className="py-20">
@@ -475,4 +401,5 @@ function App() {
 }
 
 export default App
+
 
