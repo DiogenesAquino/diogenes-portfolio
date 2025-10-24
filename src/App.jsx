@@ -1,438 +1,180 @@
-import { useState, useEffect } from 'react'
-import { Button } from '@/components/ui/button.jsx'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.jsx'
-import { Badge } from '@/components/ui/badge.jsx'
-import { Shield, Lock, Eye, Globe, Mail, Linkedin, Download, ChevronDown, Terminal, Server, Cloud, Award } from 'lucide-react'
-import { motion } from 'framer-motion'
-import diogenesPhoto from './assets/diogenes-photo.jpg'
-import diogenesProfessional from './assets/diogenes-professional.jpg'
-import cyberBackgroundFullSite from './assets/cyber-background-full-site.jpg'
-import './App.css'
+import { motion } from "framer-motion";
+import diogenesProfessional from "./assets/diogenes-professional.jpg";
+import "./App.css";
 
 function App() {
-  const [typedText, setTypedText] = useState('')
-  const fullText = 'Protegendo o futuro digital, um sistema de cada vez.'
-
-  useEffect(() => {
-    let i = 0
-    const timer = setInterval(() => {
-      if (i < fullText.length) {
-        setTypedText(fullText.slice(0, i + 1))
-        i++
-      } else {
-        clearInterval(timer)
-      }
-    }, 100)
-
-    return () => clearInterval(timer)
-  }, [])
-
-  const certifications = [
-    { name: 'Distintivos da Credly 1', link: 'https://www.credly.com/users/diogenes-aquino-freitas/edit/reorder_badges' },
-    { name: 'Distintivos da Credly 2', link: 'https://www.credly.com/users/diogenes-aquino-freitas/edit/reorder_badges' }
-  ]
-
-  const projects = [
-    {
-      title: 'WAZUH SIEM',
-      description: 'Implementação prática e análise de cenários de segurança com Wazuh SIEM.',
-      tech: ['SIEM', 'Security Analysis', 'Threat Detection']
-    },
-    {
-      title: 'Laboratório Virtual de Cibersegurança',
-      description: 'Simulações de ataques e defesas com VMs e SIEMs para treino prático.',
-      tech: ['Virtual Machines', 'Penetration Testing', 'Defense Simulation']
-    },
-    {
-      title: 'Laboratório de OSINT',
-      description: 'Coleta e análise de informações públicas com Maltego e recon-ng.',
-      tech: ['OSINT', 'Maltego', 'Intelligence Gathering']
-    },
-    {
-      title: 'Análise de Tráfego com Wireshark',
-      description: 'Monitorização de pacotes de rede e estudo de protocolos.',
-      tech: ['Network Analysis', 'Wireshark', 'Protocol Analysis']
-    }
-  ]
-
-  const skills = [
-    { category: 'Redes & Protocolos', items: ['TCP/IP', 'DNS', 'DHCP', 'VPN'] },
-    { category: 'Sistemas Operativos', items: ['Windows', 'Linux', 'System Hardening'] },
-    { category: 'Ferramentas de Segurança', items: ['SIEM', 'Firewall', 'Antivirus', 'Backup Tools'] },
-    { category: 'Cloud Computing', items: ['Oracle Cloud', 'AWS', 'Azure', 'Multi-cloud'] },
-    { category: 'Compliance & Standards', items: ['ISO 27001', 'NIST', 'GDPR', 'Risk Assessment'] }
-  ]
-
-  const scrollToSection = (sectionId) => {
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' })
-  }
-
   return (
-    <div 
-      className="min-h-screen bg-background text-foreground"
-      style={{
-        backgroundImage: `url(${cyberBackgroundFullSite})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        backgroundAttachment: 'fixed'
-      }}
-    >
-      <div className="absolute inset-0 bg-background/85"></div>
-      <div className="relative z-10">
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center matrix-bg">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background/80"></div>
-        <div className="container mx-auto px-4 z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              className="space-y-6"
-            >
-              <div className="space-y-4">
-                <h1 className="text-5xl lg:text-7xl font-bold cyber-text-glow">
-                  Diógenes
-                  <br />
-                  <span className="text-primary">Aquino Freitas</span>
-                </h1>
-                <h2 className="text-2xl lg:text-3xl text-muted-foreground">
-                  Técnico Especialista em Cibersegurança
-                </h2>
-                <div className="h-16">
-                  <p className="text-lg text-primary font-mono">
-                    {typedText}
-                    <span className="animate-pulse">|</span>
-                  </p>
-                </div>
-              </div>
-              
-              <div className="flex flex-wrap gap-4">
-                <Button 
-                  size="lg" 
-                  className="cyber-glow pulse-glow"
-                  onClick={() => scrollToSection('contact')}
-                >
-                  <Mail className="mr-2 h-5 w-5" />
-                  Contactar
-                </Button>
-                <Button 
-                  variant="outline" 
-                  size="lg"
-                  className="cyber-border"
-                  onClick={() => scrollToSection('projects')}
-                >
-                  <Eye className="mr-2 h-5 w-5" />
-                  Ver Projetos
-                </Button>
-              </div>
-            </motion.div>
+    <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-black text-white">
+      {/* ===== Header ===== */}
+      <header className="text-center py-12">
+        <motion.img
+          src={diogenesProfessional}
+          alt="Diógenes Aquino Freitas"
+          className="w-40 h-40 rounded-full mx-auto shadow-xl border-4 border-cyan-400"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        />
+        <h1 className="text-4xl font-bold mt-4 tracking-tight">
+          Diógenes Aquino Freitas
+        </h1>
+        <p className="text-cyan-300 text-lg mt-2">
+          Cibersegurança sem fronteiras 🌍 — Portugal | Espanha | Brasil | Chile | Peru
+        </p>
+        <p className="mt-2 text-gray-400">
+          Analista de Cibersegurança | SIEMs (Wazuh, QRadar, Splunk, Sentinel) | Cloud (AWS, Azure, Oracle)
+        </p>
+      </header>
 
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="flex justify-center"
-            >
-              <div className="relative">
-                <div className="absolute inset-0 cyber-glow rounded-full"></div>
-                <img
-                  src={diogenesPhoto}
-                  alt="Diógenes Aquino Freitas"
-                  className="w-80 h-80 rounded-full object-cover border-4 border-primary/50 floating"
-                />
-              </div>
-            </motion.div>
-          </div>
-        </div>
-        
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5 }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        >
-          <ChevronDown 
-            className="h-8 w-8 text-primary animate-bounce cursor-pointer"
-            onClick={() => scrollToSection('about')}
-          />
-        </motion.div>
-      </section>
-
-      {/* About Section */}
-      <section id="about" className="py-20 relative">
-        <div className="container mx-auto px-4 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="max-w-6xl mx-auto"
-          >
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold cyber-text-glow">
-                <Shield className="inline mr-4 h-10 w-10 text-primary" />
-                Sobre Mim
-              </h2>
-            </div>
-            
-            <div className="grid lg:grid-cols-2 gap-12 items-center mb-12">
-              <div className="space-y-6">
-                <p className="text-xl text-muted-foreground leading-relaxed">
-                  Técnico Especialista em Cibersegurança em formação e estudante de Bacharelado em Sistemas e 
-                  Tecnologia da Informação. Apaixonado por tecnologia, segurança digital e inteligência artificial, 
-                  atuo na criação de laboratórios e projetos de segurança da informação.
-                </p>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  Com experiência prévia em gestão administrativa, redes e sistemas, estou em transição para a área 
-                  de Cibersegurança. Possuo certificações internacionais em Oracle Cloud, AWS e Microsoft Azure, 
-                  demonstrando preparação para ambientes multicloud.
-                </p>
-              </div>
-              
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                viewport={{ once: true }}
-                className="flex justify-center"
-              >
-                <div className="relative">
-                  <div className="absolute inset-0 cyber-glow rounded-lg"></div>
-                  <img
-                    src={diogenesProfessional}
-                    alt="Diógenes Aquino Freitas - Foto Profissional"
-                    className="w-80 h-96 rounded-lg object-cover border-4 border-primary/50 floating"
-                  />
-                </div>
-              </motion.div>
-            </div>
-            
-            <div className="grid md:grid-cols-3 gap-6 mt-12">
-              <Card className="cyber-border bg-card/80">
-                <CardContent className="p-6 text-center">
-                  <Terminal className="h-12 w-12 text-primary mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold mb-2">Análise de Vulnerabilidades</h3>
-                  <p className="text-muted-foreground">Especialização em identificação e mitigação de vulnerabilidades</p>
-                </CardContent>
-              </Card>
-              
-              <Card className="cyber-border bg-card/80">
-                <CardContent className="p-6 text-center">
-                  <Server className="h-12 w-12 text-primary mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold mb-2">SIEM & SOC</h3>
-                  <p className="text-muted-foreground">Experiência com ferramentas SIEM e operações de SOC</p>
-                </CardContent>
-              </Card>
-              
-              <Card className="cyber-border bg-card/80">
-                <CardContent className="p-6 text-center">
-                  <Cloud className="h-12 w-12 text-primary mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold mb-2">Cloud Security</h3>
-                  <p className="text-muted-foreground">Certificado em AWS, Azure e Oracle Cloud Infrastructure</p>
-                </CardContent>
-              </Card>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Skills Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-4xl font-bold cyber-text-glow mb-4">
-              <Lock className="inline mr-4 h-10 w-10 text-primary" />
-              Competências Técnicas
-            </h2>
-          </motion.div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {skills.map((skillGroup, index) => (
-              <motion.div
-                key={skillGroup.category}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <Card className="cyber-border bg-card/80 h-full">
-                  <CardHeader>
-                    <CardTitle className="text-primary">{skillGroup.category}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="flex flex-wrap gap-2">
-                      {skillGroup.items.map((skill) => (
-                        <Badge key={skill} variant="secondary" className="cyber-border">
-                          {skill}
-                        </Badge>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Certifications Section */}
-      <section className="py-20 bg-card/50">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-4xl font-bold cyber-text-glow mb-4">
-              <Award className="inline mr-4 h-10 w-10 text-primary" />
-              Certificações
-            </h2>
-          </motion.div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
-            {certifications.map((cert, index) => (
-              <motion.div
-                key={cert}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <Card className="cyber-border bg-card/80 hover:cyber-glow transition-all duration-300">
-                  <CardContent className="p-4 text-center">
-                    {cert.link ? (
-                      <a href={cert.link} target="_blank" rel="noopener noreferrer" className="font-medium text-primary hover:underline">
-                        {cert.name}
-                      </a>
-                    ) : (
-                      <p className="font-medium">{cert.name}</p>
-                    )}
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Projects Section */}
-      <section id="projects" className="py-20">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-4xl font-bold cyber-text-glow mb-4">
-              <Globe className="inline mr-4 h-10 w-10 text-primary" />
-              Projetos & Laboratórios
-            </h2>
-          </motion.div>
-          
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            {projects.map((project, index) => (
-              <motion.div
-                key={project.title}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
-                viewport={{ once: true }}
-              >
-                <Card className="cyber-border bg-card/80 hover:cyber-glow transition-all duration-300 h-full">
-                  <CardHeader>
-                    <CardTitle className="text-primary">{project.title}</CardTitle>
-                    <CardDescription className="text-base">
-                      {project.description}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="flex flex-wrap gap-2">
-                      {project.tech.map((tech) => (
-                        <Badge key={tech} variant="outline" className="cyber-border">
-                          {tech}
-                        </Badge>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Section */}
-      <section id="contact" className="py-20 bg-card/50">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="max-w-4xl mx-auto text-center space-y-8"
-          >
-            <h2 className="text-4xl font-bold cyber-text-glow mb-8">
-              Vamos Conectar?
-            </h2>
-            <p className="text-xl text-muted-foreground mb-8">
-              Estou à procura de oportunidades de estágio onde possa aplicar as minhas competências técnicas 
-              e crescer profissionalmente num ambiente de inovação e excelência tecnológica.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <Button 
-                size="lg" 
-                className="cyber-glow pulse-glow"
-                onClick={() => window.open('mailto:diogenesfaquino@gmail.com')}
-              >
-                <Mail className="mr-2 h-5 w-5" />
-                diogenesfaquino@gmail.com
-              </Button>
-              
-              <Button 
-                variant="outline" 
-                size="lg"
-                className="cyber-border"
-                onClick={() => window.open('https://www.linkedin.com/in/diogenes-a-freitas-4577951a1/', '_blank')}
-              >
-                <Linkedin className="mr-2 h-5 w-5" />
-                LinkedIn
-              </Button>
-            </div>
-            
-            <div className="pt-8">
-              <p className="text-sm text-muted-foreground">
-                📍 Coimbra, Portugal | 📞 +351 911 781 234
-              </p>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="py-8 border-t border-border">
-        <div className="container mx-auto px-4 text-center">
-          <p className="text-muted-foreground">
-            © 2025 Diógenes Aquino Freitas. Protegendo o futuro digital.
+      {/* ===== Conteúdo Principal ===== */}
+      <main className="max-w-4xl mx-auto px-6">
+        {/* Experiência Internacional */}
+        <section className="my-10">
+          <h2 className="text-2xl font-semibold border-b border-cyan-500 pb-2 mb-4">
+            🌐 Experiência Internacional
+          </h2>
+          <p className="text-gray-300 leading-relaxed">
+            Atuação em projetos de Cibersegurança e Gestão de Vulnerabilidades para clientes na
+            <strong> Espanha, Portugal, Brasil, Chile e Peru</strong>, integrando equipas globais da
+            Stratesys e parceiros multinacionais. Experiência em SOC, Blue Team, Threat Hunting e
+            Compliance (ISO 27001, NIST, GDPR).
           </p>
-        </div>
+        </section>
+
+        {/* Formação Acadêmica */}
+        <section className="my-10">
+          <h2 className="text-2xl font-semibold border-b border-cyan-500 pb-2 mb-4">
+            🎓 Formação Académica
+          </h2>
+          <ul className="list-disc list-inside text-gray-300 space-y-2">
+            <li><strong>Bacharelado em Gestão Financeira e de Empresas</strong> — Universidade Salvador</li>
+            <li><strong>Bacharelado em Tecnologias e Sistemas da Informação</strong> — UNIFACS</li>
+            <li><strong>Técnico Especialista em Cibersegurança</strong> — Centro de Formação Profissional de Coimbra</li>
+            <li><strong>Analista de Cibersegurança</strong> — Cisco Networking Academy</li>
+          </ul>
+        </section>
+
+        {/* Competências Técnicas */}
+        <section className="my-10">
+          <h2 className="text-2xl font-semibold border-b border-cyan-500 pb-2 mb-4">
+            🔒 Competências Técnicas
+          </h2>
+          <ul className="list-disc list-inside text-gray-300 space-y-2">
+            <li>SIEMs: Wazuh, QRadar, Splunk, Microsoft Sentinel</li>
+            <li>Gestão de Vulnerabilidades: Qualys, Nessus</li>
+            <li>Cloud: AWS, Azure, Oracle</li>
+            <li>Frameworks: MITRE ATT&CK, ISO 27001, NIST, GDPR</li>
+            <li>Linguagens: Python, SQL, PowerShell</li>
+          </ul>
+        </section>
+
+        {/* Projetos Recentes */}
+        <section className="my-10">
+          <h2 className="text-2xl font-semibold border-b border-cyan-500 pb-2 mb-4">
+            🧠 Projetos Recentes
+          </h2>
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* Projeto 1 */}
+            <motion.div
+              className="bg-gray-800 rounded-xl p-6 shadow-lg border border-gray-700 hover:border-cyan-400 transition-all"
+              whileHover={{ scale: 1.03 }}
+            >
+              <h3 className="text-xl font-semibold text-cyan-400 mb-2">
+                Wazuh SIEM — Monitorização e Dashboards
+              </h3>
+              <p className="text-gray-300">
+                Implementação e análise de alertas com Wazuh SIEM em laboratório multinuvem.
+                Criação de dashboards e testes de correlação com MITRE ATT&CK.
+              </p>
+            </motion.div>
+
+            {/* Projeto 2 */}
+            <motion.div
+              className="bg-gray-800 rounded-xl p-6 shadow-lg border border-gray-700 hover:border-cyan-400 transition-all"
+              whileHover={{ scale: 1.03 }}
+            >
+              <h3 className="text-xl font-semibold text-cyan-400 mb-2">
+                Dashboard de Vulnerabilidades — Qualys & Nessus
+              </h3>
+              <p className="text-gray-300">
+                Automação de relatórios com Python e Power BI, integrando dados de vulnerabilidades
+                de Qualys e Nessus para priorização de riscos empresariais.
+              </p>
+            </motion.div>
+
+            {/* Projeto 3 */}
+            <motion.div
+              className="bg-gray-800 rounded-xl p-6 shadow-lg border border-gray-700 hover:border-cyan-400 transition-all md:col-span-2"
+              whileHover={{ scale: 1.03 }}
+            >
+              <h3 className="text-xl font-semibold text-cyan-400 mb-2">
+                Cibersegurança e Cloud — Estrutura Internacional
+              </h3>
+              <p className="text-gray-300">
+                Projetos em ambientes híbridos (Espanha, Portugal, Brasil, Chile, Peru), fortalecendo
+                a resiliência cibernética e as práticas de governança em multinacionais.
+              </p>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Certificações */}
+        <section className="my-10">
+          <h2 className="text-2xl font-semibold border-b border-cyan-500 pb-2 mb-4">
+            📜 Certificações e Cursos
+          </h2>
+          <ul className="list-disc list-inside text-gray-300 space-y-2">
+            <li><strong>Google Cybersecurity Certificate</strong> — Fundamentos, Linux, SQL, Gestão de Riscos e Resposta a Incidentes.</li>
+            <li><strong>Cisco Junior Cybersecurity Analyst</strong> — Detecção, Defesa e Investigação de Ameaças.</li>
+            <li><strong>IBM Cybersecurity Analyst</strong> — QRadar SIEM Foundation e Inteligência Cibernética.</li>
+            <li><strong>AWS Cloud Practitioner</strong> — Amazon Web Services Cloud Foundations.</li>
+            <li><strong>Microsoft Azure AZ-900</strong> — Fundamentos de Nuvem e Segurança.</li>
+            <li><strong>Oracle Cloud Foundations</strong> — Infraestrutura e Segurança em Nuvem.</li>
+            <li><strong>ISO 27001, NIST e GDPR</strong> — Governança, Risco e Compliance.</li>
+          </ul>
+        </section>
+
+        {/* Contato */}
+        <section className="my-10 text-center">
+          <h2 className="text-2xl font-semibold border-b border-cyan-500 pb-2 mb-4">
+            📬 Vamos manter contato
+          </h2>
+          <p className="text-gray-300 mb-3">
+            Ficarei feliz em trocar ideias sobre projetos, parcerias ou oportunidades na área de Cibersegurança.
+          </p>
+          <div className="space-y-2">
+            <p className="text-cyan-300">
+              📧 E-mail:{" "}
+              <a
+                href="mailto:diogenesfaquino@gmail.com"
+                className="text-cyan-400 hover:underline"
+              >
+                diogenesfaquino@gmail.com
+              </a>
+            </p>
+            <p className="text-cyan-300">📱 Telefone: +351 911 781 234</p>
+            <p className="text-cyan-300">
+              💼 LinkedIn:{" "}
+              <a
+                href="https://www.linkedin.com/in/diogenes-a-freitas-4577951a1/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-cyan-400 hover:underline"
+              >
+                linkedin.com/in/diogenes-a-freitas-4577951a1
+              </a>
+            </p>
+          </div>
+        </section>
+      </main>
+
+      {/* ===== Rodapé ===== */}
+      <footer className="text-center py-6 text-sm text-gray-500 border-t border-gray-700">
+        © 2025 Diógenes Aquino Freitas — Segurança da Informação e Inovação Global 🌍
       </footer>
-      </div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
 
